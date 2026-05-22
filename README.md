@@ -38,13 +38,13 @@ Running `train.py` will:
 - apply Gatekeeper fine-tuning with an alpha sweep,
 - prepare the cascade setup for downstream robustness evaluation.
 
-To run the same training flow with Weights & Biases logging enabled:
+## To run the same training flow with Weights & Biases logging enabled:
 
 ```bash
-python train_wandb_cc.py --wandb-project Robustness_Cascade
+python train_cifar10_wandb_cc.py --wandb-project Robustness_Cascade
 ```
 
-`train_wandb_cc.py` logs the stage metrics, learning rates, alpha sweep results, and CodeCarbon emissions in addition to the local `.pth` files. You can disable either tracker with `--no-wandb` or `--no-codecarbon`.
+`train_cifar10_wandb_cc.py` logs the stage metrics, learning rates, alpha sweep results, and CodeCarbon emissions in addition to the local `.pth` files. You can disable either tracker with `--no-wandb` or `--no-codecarbon`.
 
 
 The CIFAR-10-C robustness sweep also supports the same experiment tracking:
@@ -56,7 +56,7 @@ python robustness_cifar_10c_wandb_cc.py --wandb-project Robustness_Cascade
 It logs the robustness table, generated plots, and per-stage CodeCarbon emissions for the full evaluation run, including a stage-by-stage emissions comparison chart with percentage increases or decreases versus the previous stage. It also adds a peak cascade-accuracy data point derived from the deferral curve, plots its percentage gain over the standalone small model, and tracks a tau sweep showing cascade accuracy and gain across different tau combinations via `--tau-values`. Use `--no-wandb` or `--no-codecarbon` to turn either integration off.
 
 ```bash
-python evaluate.py
+python src/evaluate.py
 ```
 - runs models, collects confidence scores, computes s_o and s_d(see paper) 
 
