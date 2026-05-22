@@ -121,5 +121,10 @@ python train_cifar100_wandb_cc.py --codecarbon-output-dir codecarbon --codecarbo
 
 ### Cifar100 eval run
 ```bash
-python evaluate_cifa100.py
+python src/evaluate_cifa100.py
+```
+
+## plots
+```bash
+python src/plot_cifar100.py
 ```
